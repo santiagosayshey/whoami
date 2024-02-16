@@ -1,16 +1,17 @@
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import Navbar from './components/Navbar';
+import Dashboard from './components/pages/Dashboard';
+
+import './App.css';
 
 function App() {
   return (
-
+    <>
+      <Navbar />
+      <Dashboard />
+    </>
   );
 }
 

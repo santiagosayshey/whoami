@@ -1,0 +1,25 @@
+.navbar {
+  background-color: #ffd6ab;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 30px;
+}
+
+.navbar-brand {
+  font-family: "Playfair Display", serif;
+  margin-left: 16px;
+}
+
+.navbar-brand:hover {
+  color: #ff7e67;
+}
+
+.left-content {
+  background-color: blue;
+}
+.middle-content {
+  background-color: green;
+}
+.right-content {
+  background-color: red;
+}
