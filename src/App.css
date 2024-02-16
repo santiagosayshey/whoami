@@ -1,3 +1,8 @@
+body {
+  background-color: #fffcf3;
+}
+
+/* Navbar */
 .navbar {
   background-color: #ffd6ab;
   margin-top: 20px;
@@ -8,18 +13,48 @@
 .navbar-brand {
   font-family: "Playfair Display", serif;
   margin-left: 16px;
+  font-size: 30px;
 }
 
 .navbar-brand:hover {
   color: #ff7e67;
 }
 
-.left-content {
-  background-color: blue;
+/* Dashboard */
+.side-content {
+  background-color: rgba(255, 214, 171, 0.42);
+  border-radius: 30px;
 }
 .middle-content {
-  background-color: green;
+  background-color: rgba(255, 214, 171, 0.42);
+  border-radius: 30px;
 }
-.right-content {
-  background-color: red;
+
+.greeting {
+  font-family: "Covered By Your Grace", cursive;
+  margin-top: 20px;
+}
+
+.date {
+  font-family: "Playfair Display", serif;
+  opacity: 0.5;
+  margin-top: 30px;
+  font-size: x-small;
+}
+
+.main-card {
+  background-color: rgba(255, 214, 171, 0.42);
+  border-radius: 15px;
+}
+
+.grati-question {
+  font-family: "Playfair Display", serif;
+  padding: 10px;
+  font-weight: bolder;
+}
+
+.card-header {
+  font-family: "Playfair Display", serif;
+  font-weight: lighter;
+  font-size: 30px;
 }
