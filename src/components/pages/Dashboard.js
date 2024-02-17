@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Calendar from 'react-calendar'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Calendar.css';
+import '../modals/AddSkill.js';
+import AddSkillComponent from '../modals/AddSkill.js';
 
 const Dashboard = () => {
     const [selectedDate, setSelectedDate] = useState(new Date());
@@ -141,9 +143,7 @@ const Dashboard = () => {
                                         - Let your thoughts flow away!
                                     </p>
                                 </div>
-                                <div class="main-card mt-3 ms-1 me-1 add-skill mb-3">
-                                    +
-                                </div>
+                                <AddSkillComponent />
                             </div>
                         </div>
                     </div>

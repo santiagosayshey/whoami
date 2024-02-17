@@ -75,3 +75,18 @@ body {
 .add-skill:hover {
   background-color: rgba(255, 214, 171, 1);
 }
+
+.modal-content {
+  font-family: "Playfair Display", serif;
+}
+
+.modal-content .btn-primary {
+  background-color: rgba(255, 126, 103, 0.5);
+  border: none;
+  color: black;
+}
+
+.modal-content .btn-primary:hover {
+  background-color: #ff7e67;
+  border-color: #ff7e67;
+}
