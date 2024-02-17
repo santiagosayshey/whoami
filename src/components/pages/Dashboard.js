@@ -113,12 +113,39 @@ const Dashboard = () => {
                     <h2 className='card-header text-end'>Calendar</h2>
                     <Calendar className={'mt-3 ms-2'} formatShortWeekday={formatShortWeekday} onClickDay={handleDateClick}
                         value={selectedDate} />
-                    <div className='side-content'>
-
-                    </div>
-                    <h2 className='card-header text-end'>My Skills</h2>
-                    <div className='side-content'>
-                        <p>test</p>
+                    <h2 className='card-header text-end mt-3'>My Skills</h2>
+                    <div className='side-content container-fluid mt-3'>
+                        <div className='row'>
+                            <div className='col-12'>
+                                <div className='main-card mt-3 ms-1 me-1'>
+                                    <p className='skill-text'>
+                                        <strong>
+                                            <em>Drop Anchor</em>
+                                        </strong>
+                                        - Calm yourself down when you feel overwhelmed!
+                                    </p>
+                                </div>
+                                <div className='main-card mt-3 ms-1 me-1'>
+                                    <p className='skill-text'>
+                                        <strong>
+                                            <em>Radically Accept</em>
+                                        </strong>
+                                        - Figure out what you can and can't control!
+                                    </p>
+                                </div>
+                                <div className='main-card mt-3 ms-1 me-1'>
+                                    <p className='skill-text'>
+                                        <strong>
+                                            <em>Leaves on a Stream</em>
+                                        </strong>
+                                        - Let your thoughts flow away!
+                                    </p>
+                                </div>
+                                <div class="main-card mt-3 ms-1 me-1 add-skill mb-3">
+                                    +
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
