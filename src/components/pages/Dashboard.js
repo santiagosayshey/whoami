@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './Calendar.css';
 import '../modals/AddSkill.js';
 import AddSkillComponent from '../modals/AddSkill.js';
+import GratitudeCard from '../modals/GratitudeCard.js';
 
 const Dashboard = () => {
     const [selectedDate, setSelectedDate] = useState(new Date());
@@ -36,6 +37,12 @@ const Dashboard = () => {
         setSelectedDate(value);
         // Add logic to fetch data from the database for `value` (the selected date)
         // setDataForSelectedDate(fetchedData);
+    };
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        // Process form data here, e.g., send it to a server or log it
+        console.log('Form submitted');
     };
 
     // Use an effect to fetch data when the selected date changes
@@ -79,34 +86,26 @@ const Dashboard = () => {
                             </div>
                         </div>
                         <div className='row'>
-                            <div className='col-6 '>
-                                <div className='main-card'>
-                                    <h6 className='grati-question'>Card 1</h6>
-                                </div>
+                            <div className='col-6'>
+                                <GratitudeCard question="What achievement are you proud of today?" onSave={(answer) => console.log(answer)} />
+
                             </div>
-                            <div className='col-6 '>
-                                <div className='main-card'>
-                                    <h6 className='grati-question'>Card 2</h6>
-                                </div>
+                            <div className='col-6'>
+                                <GratitudeCard question="What achievement are you proud of today?" onSave={(answer) => console.log(answer)} />
                             </div>
                         </div>
                         <div className='row'>
-                            <div className='col-6 '>
-                                <div className='main-card'>
-                                    <h6 className='grati-question'>Card 3</h6>
-                                </div>
+                            <div className='col-6'>
+                                <GratitudeCard question="What achievement are you proud of today?" onSave={(answer) => console.log(answer)} />
                             </div>
-                            <div className='col-6 '>
-                                <div className='main-card'>
-                                    <h6 className='grati-question'>Card 4</h6>
-                                </div>
+                            <div className='col-6'>
+                                <GratitudeCard question="What achievement are you proud of today?" onSave={(answer) => console.log(answer)} />
                             </div>
                         </div>
                         <div className='row'>
                             <div className='col-12'>
-                                <div className='main-card'>
-                                    <h6 className='grati-question'>Daily Entry:</h6>
-                                </div>
+                                <GratitudeCard question="Daily Entry:" onSave={(answer) => console.log(answer)} />
+
                             </div>
                         </div>
                     </div>
