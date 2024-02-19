@@ -1,5 +1,6 @@
 body {
   background-color: #fffcf3;
+  font-family: "Playfair Display", serif;
 }
 
 /* Navbar */
@@ -14,10 +15,7 @@ body {
   font-family: "Playfair Display", serif;
   margin-left: 16px;
   font-size: 30px;
-}
-
-.navbar-brand:hover {
-  color: #ff7e67;
+  cursor: none;
 }
 
 /* Dashboard */
@@ -94,4 +92,26 @@ body {
 
 .answer-button {
   margin: 10px;
+}
+
+.header {
+  font-family: "Playfair Display", serif;
+}
+
+.question {
+  font-family: "Covered By Your Grace", cursive;
+  font-size: 30px;
+}
+
+.custom-brand,
+.custom-link {
+  transition: color 0.3s ease-in-out;
+}
+
+.custom-brand:hover,
+.custom-link:hover,
+.custom-brand.active,
+.custom-link.active {
+  color: #ff7e67; /* Highlight color */
+  cursor: pointer;
 }

@@ -6,7 +6,7 @@ import '../modals/AddSkill.js';
 import AddSkillComponent from '../modals/AddSkill.js';
 import GratitudeCard from '../modals/GratitudeCard.js';
 
-const Dashboard = () => {
+const Dashboard = ({ user }) => {
     const [selectedDate, setSelectedDate] = useState(new Date());
     const [dataForSelectedDate, setDataForSelectedDate] = useState(null);
 
@@ -14,9 +14,9 @@ const Dashboard = () => {
     let greeting;
 
     if (hour < 12) {
-        greeting = 'Good Morning, ';
+        greeting = 'Good Morning';
     } else {
-        greeting = 'Good Evening, ';
+        greeting = 'Good Evening';
     }
 
     // Get the current date
@@ -76,8 +76,7 @@ const Dashboard = () => {
                         <div className='row'>
                             <div className='col-7 greeting'>
                                 <h1>
-                                    {greeting} Sam!
-                                </h1>
+                                    {user ? `${greeting}, ${user.firstName}!` : `${greeting}!`}                                </h1>
                             </div>
                             <div className='col-5 date'>
                                 <div className='d-flex justify-content-end'>

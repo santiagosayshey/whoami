@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react'; // Import useEffect
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes, NavLink, Link } from 'react-router-dom';
 import { Modal, Button, Form, Alert } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Dashboard from './components/pages/Dashboard';
+import Questions from './components/pages/Questions'; // Make sure to import the Questions component
 import './App.css';
 
 function App() {
@@ -105,113 +106,122 @@ function App() {
   }, []);
 
   return (
-    <div className='container'>
-      <nav className='navbar navbar-expand-lg'>
-        <a className="navbar-brand" href="/">whoami</a>
-        <div className="ms-auto">
+    <Router>
+      <div className='container'>
+        <nav className='navbar navbar-expand-lg'>
+          <Link className="navbar-brand" to="/">whoami</Link>
           {user ? (
-            <Button className="btn btn-outline-primary me-4" onClick={handleLogout}>Log out</Button>
-          ) : (
             <>
-              <Button className="btn btn-outline-primary me-3" onClick={handleLoginModal}>Login</Button>
-              <Button className="btn btn-outline-secondary me-4" onClick={handleSignupModal}>Sign Up</Button>
+              <NavLink to="/" className={({ isActive }) => isActive ? "nav-link custom-link active mt-2 ms-4" : "nav-link custom-link mt-2 ms-4"}>Dashboard</NavLink>
+              <NavLink to="/questions" className={({ isActive }) => isActive ? "nav-link me-3 custom-link mt-2 ms-4 active" : "nav-link me-3 custom-link mt-2 ms-4"} style={{ display: 'inline-block' }}>My Questions</NavLink>
+              <div className="ms-auto">
+                <Button className="btn btn-outline-primary me-3" onClick={handleLogout}>Log out</Button>
+              </div>
             </>
+          ) : (
+            <div className="ms-auto">
+              <Button className="btn btn-outline-primary me-3" onClick={handleLoginModal}>Login</Button>
+              <Button className="btn btn-outline-secondary me-3" onClick={handleSignupModal}>Sign Up</Button>
+            </div>
           )}
-        </div>
-      </nav>
-      {/* Login Modal*/}
-      <Modal show={showLoginModal} onHide={() => setShowLoginModal(false)}>
-        <Modal.Header closeButton>
-          <Modal.Title>Login</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          {error && <Alert variant="danger">{error}</Alert>}
-          <Form onSubmit={handleLoginSubmit}>
-            <Form.Group className="mb-3">
-              <Form.Label>Email address</Form.Label>
-              <Form.Control
-                type="email"
-                placeholder="Enter email"
-                name="email"
-                value={loginData.email}
-                onChange={handleLoginChange}
-                required
-              />
-            </Form.Group>
-            <Form.Group className="mb-3">
-              <Form.Label>Password</Form.Label>
-              <Form.Control
-                type="password"
-                placeholder="Password"
-                name="password"
-                value={loginData.password}
-                onChange={handleLoginChange}
-                required
-              />
-            </Form.Group>
-            <Button variant="primary" type="submit">Login</Button>
-          </Form>
-        </Modal.Body>
-      </Modal>
-      {/* Signup Modal */}
-      <Modal show={showSignupModal} onHide={() => setShowSignupModal(false)}>
-        <Modal.Header closeButton>
-          <Modal.Title>Sign Up</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          {error && <Alert variant="danger">{error}</Alert>}
-          <Form onSubmit={handleSignupSubmit}>
-            <Form.Group className="mb-3">
-              <Form.Label>First Name</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="First Name"
-                name="firstName"
-                value={signupData.firstName}
-                onChange={handleSignupChange}
-                required
-              />
-            </Form.Group>
-            <Form.Group className="mb-3">
-              <Form.Label>Last Name</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Last Name"
-                name="lastName"
-                value={signupData.lastName}
-                onChange={handleSignupChange}
-                required
-              />
-            </Form.Group>
-            <Form.Group className="mb-3">
-              <Form.Label>Email Address</Form.Label>
-              <Form.Control
-                type="email"
-                placeholder="Email"
-                name="email"
-                value={signupData.email}
-                onChange={handleSignupChange}
-                required
-              />
-            </Form.Group>
-            <Form.Group className="mb-3">
-              <Form.Label>Password</Form.Label>
-              <Form.Control
-                type="password"
-                placeholder="Password"
-                name="password"
-                value={signupData.password}
-                onChange={handleSignupChange}
-                required
-              />
-            </Form.Group>
-            <Button variant="primary" type="submit">Sign Up</Button>
-          </Form>
-        </Modal.Body>
-      </Modal>
-      <Dashboard userId={user ? user.id : null} />
-    </div>
+        </nav>
+        <Modal show={showLoginModal} onHide={() => setShowLoginModal(false)}>
+          <Modal.Header closeButton>
+            <Modal.Title>Login</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            {error && <Alert variant="danger">{error}</Alert>}
+            <Form onSubmit={handleLoginSubmit}>
+              <Form.Group className="mb-3">
+                <Form.Label>Email address</Form.Label>
+                <Form.Control
+                  type="email"
+                  placeholder="Enter email"
+                  name="email"
+                  value={loginData.email}
+                  onChange={handleLoginChange}
+                  required
+                />
+              </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                  type="password"
+                  placeholder="Password"
+                  name="password"
+                  value={loginData.password}
+                  onChange={handleLoginChange}
+                  required
+                />
+              </Form.Group>
+              <Button variant="primary" type="submit">Login</Button>
+            </Form>
+          </Modal.Body>
+        </Modal>
+        {/* Signup Modal */}
+        <Modal show={showSignupModal} onHide={() => setShowSignupModal(false)}>
+          <Modal.Header closeButton>
+            <Modal.Title>Sign Up</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            {error && <Alert variant="danger">{error}</Alert>}
+            <Form onSubmit={handleSignupSubmit}>
+              <Form.Group className="mb-3">
+                <Form.Label>First Name</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="First Name"
+                  name="firstName"
+                  value={signupData.firstName}
+                  onChange={handleSignupChange}
+                  required
+                />
+              </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>Last Name</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Last Name"
+                  name="lastName"
+                  value={signupData.lastName}
+                  onChange={handleSignupChange}
+                  required
+                />
+              </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>Email Address</Form.Label>
+                <Form.Control
+                  type="email"
+                  placeholder="Email"
+                  name="email"
+                  value={signupData.email}
+                  onChange={handleSignupChange}
+                  required
+                />
+              </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                  type="password"
+                  placeholder="Password"
+                  name="password"
+                  value={signupData.password}
+                  onChange={handleSignupChange}
+                  required
+                />
+              </Form.Group>
+              <Button variant="primary" type="submit">Sign Up</Button>
+            </Form>
+          </Modal.Body>
+        </Modal>
+        <Routes>
+          <Route path="/" element={<Dashboard user={user} />} />
+          <Route path="/questions" element={<Questions user={user} />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
 export default App;
+
